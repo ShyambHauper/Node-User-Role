@@ -7,7 +7,7 @@ const app = express();
 app.get('/', (req, res) => {
     res.status(200).json({
         message: "This is the SoftwareCo interview task.",
-        liveURL: "",
+        liveURL: "https://node-user-role-fzahu0411-shyambhalodias-projects.vercel.app/",
         gitURL: "https://github.com/ShyambHauper/Node-User-Role.git",
         postmanCollection: "",
     });
