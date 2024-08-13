@@ -1,0 +1,504 @@
+{
+	"info": {
+		"_postman_id": "8e052a19-81ed-4e1c-8382-cde2b98a93f6",
+		"name": "Node-User-Role",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "27182980"
+	},
+	"item": [
+		{
+			"name": "User Module",
+			"item": [
+				{
+					"name": "Signup API",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstName\": \"Software\",\r\n    \"lastName\": \"Co\",\r\n    \"email\": \"softwareCo@yopmail.com\",\r\n    \"password\": \"Admin@123\",\r\n    \"role\": \"66bb4df4a4acab6f38045dca\"  // Role ID from your database\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://node-user-role.vercel.app/api/v1/auth/signup",
+							"protocol": "https",
+							"host": [
+								"node-user-role",
+								"vercel",
+								"app"
+							],
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"signup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login API",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"softwareCo@yopmail.com\",\r\n    \"password\": \"Admin@123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://node-user-role.vercel.app/api/v1/auth/login",
+							"protocol": "https",
+							"host": [
+								"node-user-role",
+								"vercel",
+								"app"
+							],
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Users API",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NmJiNGUwZWE0YWNhYjZmMzgwNDVkY2MiLCJpYXQiOjE3MjM1NTEyNjUsImV4cCI6MTcyMzU1NDg2NX0.-0tHnIsr6McMhJHE_og__bQA13Qse85rJhevWTvgE6M",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://node-user-role.vercel.app/api/v1/users?search=S",
+							"protocol": "https",
+							"host": [
+								"node-user-role",
+								"vercel",
+								"app"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users"
+							],
+							"query": [
+								{
+									"key": "search",
+									"value": "S"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Many Users with Same Data API",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NmJiNGUwZWE0YWNhYjZmMzgwNDVkY2MiLCJpYXQiOjE3MjM1NTEyNjUsImV4cCI6MTcyMzU1NDg2NX0.-0tHnIsr6McMhJHE_og__bQA13Qse85rJhevWTvgE6M",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstName\": \"Software\",\r\n    \"lastName\": \"Co\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://node-user-role.vercel.app/api/v1/users/update-many-same",
+							"protocol": "https",
+							"host": [
+								"node-user-role",
+								"vercel",
+								"app"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"update-many-same"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Many Users with Different Data API",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NmJiMzk2NGU5YTc3YmFjMjIwOTgxYTciLCJpYXQiOjE3MjM1NDU5NjAsImV4cCI6MTcyMzU0OTU2MH0.ssA1_AMsN6ipx4GYbgELUkw7uALDGDodf7wVIUv6_mI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"users\": [\r\n        {\r\n            \"_id\": \"66bb3964e9a77bac220981a7\", // User ID from your database\r\n            \"data\": {\r\n                \"firstName\": \"Software\"\r\n            }\r\n        },\r\n        {\r\n            \"_id\": \"66bb401ece19335c0f556f69\", // Another User ID\r\n            \"data\": {\r\n                \"lastName\": \"Software Co\"\r\n            }\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://node-user-role.vercel.app/api/v1/users/update-many-different",
+							"protocol": "https",
+							"host": [
+								"node-user-role",
+								"vercel",
+								"app"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"update-many-different"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Check Access API",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NmJiNGUwZWE0YWNhYjZmMzgwNDVkY2MiLCJpYXQiOjE3MjM1NTEyNjUsImV4cCI6MTcyMzU1NDg2NX0.-0tHnIsr6McMhJHE_og__bQA13Qse85rJhevWTvgE6M",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userId\": \"66bb4e0ea4acab6f38045dcc\", // User ID from your database\r\n    \"moduleName\": \"Subcategory\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://node-user-role.vercel.app/api/v1/users/check-access",
+							"protocol": "https",
+							"host": [
+								"node-user-role",
+								"vercel",
+								"app"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"check-access"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update User API",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NmJiNGUwZWE0YWNhYjZmMzgwNDVkY2MiLCJpYXQiOjE3MjM1NTEyNjUsImV4cCI6MTcyMzU1NDg2NX0.-0tHnIsr6McMhJHE_og__bQA13Qse85rJhevWTvgE6M",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"role\":\"66bb44868d89dfd01f85363f\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://node-user-role.vercel.app/api/v1/users/66bb3964e9a77bac220981a7",
+							"protocol": "https",
+							"host": [
+								"node-user-role",
+								"vercel",
+								"app"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"66bb3964e9a77bac220981a7"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete User API",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NmJiMzk2NGU5YTc3YmFjMjIwOTgxYTciLCJpYXQiOjE3MjM1NDU5NjAsImV4cCI6MTcyMzU0OTU2MH0.ssA1_AMsN6ipx4GYbgELUkw7uALDGDodf7wVIUv6_mI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://node-user-role.vercel.app/api/v1/users/66bb3964e9a77bac220981a7",
+							"protocol": "https",
+							"host": [
+								"node-user-role",
+								"vercel",
+								"app"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"66bb3964e9a77bac220981a7"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Role Module",
+			"item": [
+				{
+					"name": "Create Role API",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"roleName\": \"Super Admin\",\r\n    \"accessModules\": [\r\n        \"Product\",\r\n        \"Subcategory\",\r\n        \"Scrapping\"\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://node-user-role.vercel.app/api/v1/roles",
+							"protocol": "https",
+							"host": [
+								"node-user-role",
+								"vercel",
+								"app"
+							],
+							"path": [
+								"api",
+								"v1",
+								"roles"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Roles API",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NmJiNGUwZWE0YWNhYjZmMzgwNDVkY2MiLCJpYXQiOjE3MjM1NTEyNjUsImV4cCI6MTcyMzU1NDg2NX0.-0tHnIsr6McMhJHE_og__bQA13Qse85rJhevWTvgE6M",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://node-user-role.vercel.app/api/v1/roles",
+							"protocol": "https",
+							"host": [
+								"node-user-role",
+								"vercel",
+								"app"
+							],
+							"path": [
+								"api",
+								"v1",
+								"roles"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Role API",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NmJiMzk2NGU5YTc3YmFjMjIwOTgxYTciLCJpYXQiOjE3MjM1NDU5NjAsImV4cCI6MTcyMzU0OTU2MH0.ssA1_AMsN6ipx4GYbgELUkw7uALDGDodf7wVIUv6_mI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"roleName\": \"Super Admin\",\r\n    \"accessModules\": [\r\n        \"Product\",\r\n        \"Subcategory\"\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://node-user-role.vercel.app/api/v1/roles/66bb388a935e9d885feec6be",
+							"protocol": "https",
+							"host": [
+								"node-user-role",
+								"vercel",
+								"app"
+							],
+							"path": [
+								"api",
+								"v1",
+								"roles",
+								"66bb388a935e9d885feec6be"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Role API",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NmJiMzk2NGU5YTc3YmFjMjIwOTgxYTciLCJpYXQiOjE3MjM1NDU5NjAsImV4cCI6MTcyMzU0OTU2MH0.ssA1_AMsN6ipx4GYbgELUkw7uALDGDodf7wVIUv6_mI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://node-user-role.vercel.app/api/v1/roles/66bb388a935e9d885feec6be",
+							"protocol": "https",
+							"host": [
+								"node-user-role",
+								"vercel",
+								"app"
+							],
+							"path": [
+								"api",
+								"v1",
+								"roles",
+								"66bb388a935e9d885feec6be"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Access Modules API",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NmJiMzk2NGU5YTc3YmFjMjIwOTgxYTciLCJpYXQiOjE3MjM1NDU5NjAsImV4cCI6MTcyMzU0OTU2MH0.ssA1_AMsN6ipx4GYbgELUkw7uALDGDodf7wVIUv6_mI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"moduleName\": \"Product\",\r\n    \"action\": \"add\" // or \"remove\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://node-user-role.vercel.app/api/v1/roles/modules/66bb3b6e129172f65a54128a",
+							"protocol": "https",
+							"host": [
+								"node-user-role",
+								"vercel",
+								"app"
+							],
+							"path": [
+								"api",
+								"v1",
+								"roles",
+								"modules",
+								"66bb3b6e129172f65a54128a"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

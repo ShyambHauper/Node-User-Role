@@ -9,7 +9,7 @@ app.get('/', (req, res) => {
         message: "This is the SoftwareCo interview task.",
         liveURL: "https://node-user-role-fzahu0411-shyambhalodias-projects.vercel.app/",
         gitURL: "https://github.com/ShyambHauper/Node-User-Role.git",
-        postmanCollection: "",
+        postmanCollection: "softwareCo_Node-User-Role",
     });
 });
 
